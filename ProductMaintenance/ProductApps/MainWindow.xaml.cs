@@ -30,6 +30,7 @@ namespace ProductApps
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
             decimal chargeWithDelivery;
+            decimal chargeWithWrap;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -37,7 +38,9 @@ namespace ProductApps
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 // adding delivery charge and display to the text block
                 chargeWithDelivery = cProduct.TotalPayment + 25m;
+                chargeWithWrap = chargeWithDelivery + 5m;
                 totalChargeWithDeliveryCharge.Text = chargeWithDelivery.ToString("C");
+                totalChargeWithWrapCharge.Text = chargeWithDelivery.ToString("C");
             }
             catch (FormatException)
             {
